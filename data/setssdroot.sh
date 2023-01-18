@@ -1,10 +1,19 @@
 #!/bin/sh
 # Runs at startup, switches rootfs to the SSD on nvme0 (M.2 Key M slot)
-NVME_DRIVE="/dev/nvme0n1p1"
+NVME_DRIVE="/dev/sda1"
 CHROOT_PATH="/nvmeroot"
 
 INITBIN=/lib/systemd/systemd
 EXT4_OPT="-o defaults -o errors=remount-ro -o discard"
+
+counter=0
+while [ ! -e /dev/sda1 ]; do
+    sleep 0.1
+    counter=$((counter + 1))
+    if [ $counter -ge 20 ]; then
+        exit
+    fi
+done
 
 modprobe ext4
 
