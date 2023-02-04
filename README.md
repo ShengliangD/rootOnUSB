@@ -1,7 +1,10 @@
-# rootOnNVMe
-Switch the rootfs to a NVMe SSD on the Jetson Xavier NX and Jetson AGX Xavier
+# rootOnUSB
+Switch the rootfs to a USB disk on the Jetson Xavier NX and Jetson AGX Xavier.
+Based on [rootOnNVMe](https://github.com/jetsonhacks/rootOnNVMe).
+Replace the SSDs with USB disks for the rest of the instructions.
+Note that this also works with JetPack 5.0.
 
-These scripts install a service which runs at startup to point the rootfs to a SSD installed on /dev/nvme0 (the M.2 Key M slot).
+These scripts install a service which runs at startup to point the rootfs to a USB disk installed on /dev/sda1.
 
 This is taken from the NVIDIA Jetson AGX Xavier forum https://forums.developer.nvidia.com/t/how-to-boot-from-nvme-ssd/65147/22, written by user crazy_yorik (https://forums.developer.nvidia.com/u/crazy_yorick). Thank you crazy_yorik!
 
